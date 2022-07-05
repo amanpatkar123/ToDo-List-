@@ -1,0 +1,30 @@
+ul{
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+    width: 100%;
+}
+ul li{
+    height: 37px;
+    width: 35%;
+    background: mediumblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+ul li a {
+    padding: 0px 16px;
+    text-decoration: none;
+    background: mediumblue;
+    color: white;
+}
+
+ul li a.active{
+    background-color: red;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+}

@@ -1,0 +1,53 @@
+
+<div class="container-fluid bg-light">
+    <div class="container bg-light">
+        <div class="row mt-4" style="height:800px;">
+                <div class="col"></div>
+                <div class="col-md-6 bg-white shadow">
+                    <div class="card bg-warning mt-4">
+                        <h4 class="text-white ps-3 pt-2 pb-2">
+                            ToDo List
+                        </h4>
+                    </div>
+                    <div class="shadow">
+                        <div class="input-group p-4">
+                            <input type="text" class="form-control" placeholder="Enter your TODo's" name="task" [(ngModel)]="addTaskvalue">
+                            <button class="btn btn-outline-success" type="button" (click)="addTask()">+</button>
+                          </div>
+                    </div>
+
+                    <h4 class="text-primary mt-4">Tasks : </h4>
+
+                    <div  style="overflow: auto; height:450px">
+                        <div class="m-3" *ngFor="let task of taskArr">
+                            <div class="p-2 shadow border">
+                                <div class="input-group ps-3 row">
+                                    <div class="col-md-8 card border-0">{{task.task_name}}</div>
+
+                                    <button type="button" class="btn btn-outline-primary col me-2"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="open(mymodal); call(task)">Edit</button>
+                                    <button class="btn btn-outline-danger col" (click)="deleteTask(task)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <ng-template #mymodal let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Edit task</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group p-4">
+                                <input type="text" class="form-control" placeholder="Enter your TODo's" name="task" [(ngModel)]="editTaskValue">
+                                <button class="btn btn-outline-success" type="button" (click)="editTask();modal.dismiss('Cross click')">Update</button>
+                              </div>
+                        </div>
+                       
+                      </ng-template>
+        </div>
+        <div class="col"></div>
+</div>
